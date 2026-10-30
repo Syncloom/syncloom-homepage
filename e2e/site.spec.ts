@@ -63,9 +63,16 @@ test('install, docs, imprint and privacy pages', async ({ page }) => {
 	await expect(page.getByRole('heading', { level: 1 })).toHaveText('Install Syncloom');
 	await settle(page);
 	await page.screenshot({ path: `${SHOTS}/06-install.png`, fullPage: true });
+	// code blocks must be readable: the text has to contrast with the block's own background
+	await page.getByRole('tab', { name: 'macOS' }).click();
+	for (const pre of await page.locator('.prose pre').all()) {
+		if (!(await pre.isVisible())) continue;
+		const [bg, fg] = await pre.evaluate((el) => { const lum = (c: string) => { const [r, g, b] = c.match(/[\d.]+/g)!.map(Number).map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; }; const opaque = (e: Element): string => { let n: Element | null = e; while (n) { const c = getComputedStyle(n).backgroundColor; if (!/rgba\(.*, 0\)|transparent/.test(c)) return c; n = n.parentElement; } return "rgb(255, 255, 255)"; }; return [lum(opaque(el)), lum(getComputedStyle(el.querySelector('code')!).color)]; });
+		expect((Math.max(bg, fg) + 0.05) / (Math.min(bg, fg) + 0.05), "code block contrast").toBeGreaterThan(7);
+	}
 	// OS tabs switch
 	await page.getByRole('tab', { name: 'Windows' }).click();
-	await expect(page.getByText('integrates with Explorer')).toBeVisible();
+	await expect(page.getByText('has not been built or tested yet')).toBeVisible();
 	await page.goto('/docs/encryption/');
 	await expect(page.getByRole('heading', { level: 1 })).toHaveText('Encryption');
 	await expect(page.locator('.docs-toc nav a').first()).toBeVisible();
