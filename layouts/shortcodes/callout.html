@@ -1,0 +1,5 @@
+{{ $kind := .Get "type" | default "note" }}
+<aside class="callout {{ $kind }}" role="note">
+  <span class="callout-ico">{{ if eq $kind "warning" }}{{ partial "icon.html" (dict "name" "shield" "size" 20) }}{{ else if eq $kind "tip" }}{{ partial "icon.html" (dict "name" "bolt" "size" 20) }}{{ else }}{{ partial "icon.html" (dict "name" "book" "size" 20) }}{{ end }}</span>
+  <div>{{ with .Get "title" }}<strong>{{ . }}</strong>{{ end }}{{ .Inner | markdownify }}</div>
+</aside>

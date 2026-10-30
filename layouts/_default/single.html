@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article class="wrap prose-page">
+  <header class="page-head reveal">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="lead">{{ . }}</p>{{ end }}
+    {{ with .Params.updated }}<p class="muted small">Last updated {{ . }}</p>{{ end }}
+  </header>
+  <div class="prose reveal">{{ .Content }}</div>
+</article>
+{{ end }}

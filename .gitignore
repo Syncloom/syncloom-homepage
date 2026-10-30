@@ -1,0 +1,7 @@
+public/
+resources/
+.hugo_build.lock
+e2e/node_modules
+e2e/shots
+e2e/test-results
+.DS_Store

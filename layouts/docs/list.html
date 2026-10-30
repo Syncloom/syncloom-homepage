@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="wrap docs">
+  {{ partial "docs-nav.html" . }}
+  <article class="docs-main">
+    <header class="page-head reveal"><h1>{{ .Title }}</h1><p class="lead">{{ .Params.subtitle }}</p></header>
+    <div class="prose">{{ .Content }}</div>
+    <div class="docs-index">
+      {{ range .Pages.ByWeight }}<a href="{{ .RelPermalink }}"><b>{{ .Title }}</b><span>{{ .Params.subtitle }}</span></a>{{ end }}
+    </div>
+  </article>
+  <span></span>
+</div>
+{{ end }}

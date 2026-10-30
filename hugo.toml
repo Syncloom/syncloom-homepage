@@ -1,0 +1,48 @@
+baseURL = "https://syncloom.de/"
+languageCode = "en"
+title = "Syncloom"
+enableRobotsTXT = true
+enableGitInfo = false
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  tagline = "Your files, woven together. Private by design."
+  description = "Syncloom is self-hosted, end-to-end encrypted file sync and key/value storage with native apps for Mac, iPhone, Linux, Windows and Android."
+  version = "0.1"
+  github = "https://github.com/Syncloom"
+  email = "sven@syncloom.de"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+    lineNos = false
+    style = "github"
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[menus]
+  [[menus.main]]
+    name = "Features"
+    url = "/#features"
+    weight = 10
+  [[menus.main]]
+    name = "Security"
+    url = "/#security"
+    weight = 20
+  [[menus.main]]
+    name = "Install"
+    url = "/install/"
+    weight = 30
+  [[menus.main]]
+    name = "Docs"
+    url = "/docs/"
+    weight = 40
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[minify]
+  minifyOutput = true

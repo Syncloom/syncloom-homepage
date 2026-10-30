@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <title>Syncloom</title>
+  <defs>
+    <linearGradient id="bg" x1="140" y1="0" x2="884" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6a5cff"/>
+      <stop offset="1" stop-color="#12b5a6"/>
+    </linearGradient>
+    <linearGradient id="ringB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c9f6ff"/>
+      <stop offset="1" stop-color="#8be9f2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="232" fill="url(#bg)"/>
+  <g fill="none" stroke-width="76" stroke-linecap="round">
+    <circle cx="396" cy="512" r="176" stroke="#ffffff"/>
+    <circle cx="628" cy="512" r="176" stroke="url(#ringB)"/>
+    <!-- weave: the white ring passes over the cyan one at the top crossing -->
+    <path d="M456.2 346.6 A176 176 0 0 1 559.2 446.1" stroke="#ffffff" stroke-linecap="butt"/>
+  </g>
+</svg>

@@ -1,0 +1,210 @@
+{{ define "bodyclass" }}home{{ end }}
+{{ define "main" }}
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <a class="pill reveal" href="/docs/changelog/"><span class="dot"></span> Public preview {{ site.Params.version }} <span class="arr">{{ partial "icon.html" (dict "name" "arrow" "size" 14) }}</span></a>
+      <h1 class="reveal d1">Your files,<br><span class="grad">woven together.</span></h1>
+      <p class="lead reveal d2">Syncloom is self-hosted file sync and key/value storage with end-to-end encryption. Everything is sealed on your device, so the only one who can read your files is you.</p>
+      <div class="cta reveal d3">
+        <a class="btn primary big" href="/install/">Install in 5 minutes {{ partial "icon.html" (dict "name" "arrow" "size" 18) }}</a>
+        <a class="btn big" href="/docs/introduction/">Read the docs</a>
+      </div>
+      <div class="term reveal d4" aria-label="Quick start">
+        <div class="term-bar"><i></i><i></i><i></i><span>terminal</span></div>
+        <pre><code id="typed" data-lines="$ git clone https://github.com/Syncloom/syncloom-deploy&#10;$ cd syncloom-deploy &amp;&amp; cp .env.example .env&#10;$ docker compose up -d&#10;✔ syncloom is running at https://sync.example.org"></code><span class="caret"></span></pre>
+        <button class="copy" data-copy="docker compose up -d" aria-label="Copy command">{{ partial "icon.html" (dict "name" "copy" "size" 16) }}</button>
+      </div>
+    </div>
+
+    <div class="hero-art reveal d2" aria-hidden="true">
+      <svg viewBox="0 0 560 560" class="orbit">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6a5cff"/><stop offset="1" stop-color="#12b5a6"/></linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9f6ff"/><stop offset="1" stop-color="#8be9f2"/></linearGradient>
+          <radialGradient id="halo"><stop offset="0" stop-color="#6a5cff" stop-opacity=".35"/><stop offset="1" stop-color="#6a5cff" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="280" cy="280" r="250" fill="url(#halo)"/>
+        <circle cx="280" cy="280" r="190" class="ring-guide"/>
+        <circle cx="280" cy="280" r="120" class="ring-guide"/>
+        <!-- links from the centre to each device -->
+        <path id="p1" d="M280 280 L120 110" class="link"/>
+        <path id="p2" d="M280 280 L450 120" class="link"/>
+        <path id="p3" d="M280 280 L460 420" class="link"/>
+        <path id="p4" d="M280 280 L110 440" class="link"/>
+        <g class="pulses">
+          <circle r="5" fill="url(#g1)"><animateMotion dur="3.2s" repeatCount="indefinite" path="M280 280 L120 110"/></circle>
+          <circle r="5" fill="url(#g1)"><animateMotion dur="3.8s" begin="0.8s" repeatCount="indefinite" path="M450 120 L280 280"/></circle>
+          <circle r="5" fill="url(#g1)"><animateMotion dur="3.4s" begin="1.4s" repeatCount="indefinite" path="M280 280 L460 420"/></circle>
+          <circle r="5" fill="url(#g1)"><animateMotion dur="4s" begin="0.3s" repeatCount="indefinite" path="M110 440 L280 280"/></circle>
+        </g>
+        <!-- the brand mark, drawn in -->
+        <g transform="translate(280 280)"><g class="mark" fill="none" stroke-linecap="round" stroke-width="22">
+          <circle cx="-38" cy="0" r="52" stroke="#6a5cff" pathLength="1" class="draw"/>
+          <circle cx="38" cy="0" r="52" stroke="url(#g2)" pathLength="1" class="draw d"/>
+          <path d="M-20 -48 A52 52 0 0 1 14 -32" stroke="#6a5cff" stroke-linecap="butt" class="over"/>
+        </g></g>
+      </svg>
+      <div class="dev d-mac"><b>MacBook</b><span>synced · just now</span></div>
+      <div class="dev d-phone"><b>iPhone</b><span>1 file updating…</span></div>
+      <div class="dev d-linux"><b>ThinkPad</b><span>synced · 2 s ago</span></div>
+      <div class="dev d-web"><b>Browser</b><span>decrypting locally</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST STRIP ================= -->
+<section class="strip">
+  <div class="wrap strip-in">
+    {{ range site.Data.stats }}
+      <div class="stat reveal"><b data-count="{{ .value }}" data-suffix="{{ .suffix }}">{{ .value }}{{ .suffix }}</b><span>{{ .label }}</span></div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- ================= SHOWCASE ================= -->
+<section class="showcase">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The web app</span>
+      <h2>Calm, fast and clearly yours</h2>
+      <p class="lead">Drag in a folder, preview a document, restore an old version. All of it is decrypted right in your browser, with a clean interface that stays out of the way.</p>
+    </div>
+    <div class="shots">
+      <figure class="shot main tilt reveal">
+        <div class="chrome"><i></i><i></i><i></i><span>sync.example.org</span></div>
+        <picture>
+          <source srcset="/img/files-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="/img/files-light.png" alt="The Syncloom web app showing a folder with files" width="1360" height="860" loading="lazy">
+        </picture>
+      </figure>
+      <figure class="shot side s1 tilt reveal d2">
+        <div class="chrome"><i></i><i></i><i></i><span>Settings</span></div>
+        <img src="/img/settings.png" alt="Two-step verification settings listing two authenticator apps and a security key" width="1360" height="860" loading="lazy">
+      </figure>
+      <figure class="shot side s2 tilt reveal d3">
+        <div class="chrome"><i></i><i></i><i></i><span>Shared link</span></div>
+        <img src="/img/public-link.png" alt="A password-protected public share link page" width="1360" height="860" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="features" id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Features</span>
+      <h2>Everything you expect from file sync. Nothing you have to trust.</h2>
+    </div>
+    <div class="grid cards">
+      {{ range $i, $f := site.Data.features }}
+        <article class="card glow reveal" style="--i:{{ mod $i 3 }}">
+          <span class="ico">{{ partial "icon.html" (dict "name" $f.icon "size" 22) }}</span>
+          <h3>{{ $f.title }}</h3>
+          <p>{{ $f.text }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>From zero to syncing in three steps</h2>
+    </div>
+    <ol class="flow">
+      <li class="reveal"><span class="n">1</span><h3>Run the server</h3><p>One <code>docker compose up</code> gives you the server, the web app, Postgres and HTTPS. It needs about 200 MB of RAM.</p></li>
+      <li class="reveal d1"><span class="n">2</span><h3>Create your vault</h3><p>Pick a password. Your device derives the encryption keys and shows you a recovery key, once. The server never sees any of it.</p></li>
+      <li class="reveal d2"><span class="n">3</span><h3>Install the apps</h3><p>Sign in on your Mac, phone, Linux box or browser. Add a security key as a spare, and your files follow you everywhere.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= SECURITY ================= -->
+<section class="security" id="security">
+  <div class="wrap sec-grid">
+    <div class="reveal">
+      <span class="eyebrow">Security</span>
+      <h2>Zero knowledge is not a slogan here</h2>
+      <p class="lead">Your password never leaves your device. It is stretched with Argon2id into a login secret for the server and a key that unlocks your vault. They are different, so the server cannot derive your keys.</p>
+      <ul class="ticks">
+        <li>{{ partial "icon.html" (dict "name" "check" "size" 18) }} Per-file keys wrapped under per-folder keys, wrapped under your master key</li>
+        <li>{{ partial "icon.html" (dict "name" "check" "size" 18) }} Sharing wraps keys to the recipient's public key (X25519)</li>
+        <li>{{ partial "icon.html" (dict "name" "check" "size" 18) }} Public link keys live in the URL fragment, never in a request</li>
+        <li>{{ partial "icon.html" (dict "name" "check" "size" 18) }} Mandatory second factor, brute-force protection, replay-safe codes</li>
+      </ul>
+      <a class="btn" href="/docs/encryption/">Read the security model {{ partial "icon.html" (dict "name" "arrow" "size" 16) }}</a>
+    </div>
+    <div class="vis reveal d2" aria-hidden="true">
+      <div class="side you"><span class="lbl">On your device</span>
+        <div class="file"><i></i>Q3-budget.xlsx</div>
+        <div class="file"><i></i>Passport scan.pdf</div>
+      </div>
+      <div class="lockbox">
+        <svg viewBox="0 0 64 64" class="padlock"><path class="shackle" d="M20 28V20a12 12 0 0 1 24 0v8" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><rect x="12" y="28" width="40" height="30" rx="8" fill="url(#g1)"/><circle cx="32" cy="43" r="4" fill="#fff"/></svg>
+        <span class="beam"></span>
+      </div>
+      <div class="side srv"><span class="lbl">What the server stores</span>
+        <div class="file c"><i></i>7f3a9c0e·b21d4a…</div>
+        <div class="file c"><i></i>e19b04d7·55ac81…</div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap crypto reveal">
+    <div><b>XChaCha20-Poly1305</b><span>authenticated encryption</span></div>
+    <div><b>Argon2id</b><span>64 MiB · 3 passes</span></div>
+    <div><b>X25519 + HKDF</b><span>sealed boxes for sharing</span></div>
+    <div><b>BLAKE3</b><span>chunk and content hashes</span></div>
+    <div><b>FastCDC</b><span>delta-friendly chunking</span></div>
+    <div><b>WebAuthn</b><span>hardware security keys</span></div>
+  </div>
+</section>
+
+<!-- ================= PLATFORMS ================= -->
+<section class="platforms">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Apps</span>
+      <h2>One account. Every device.</h2>
+    </div>
+    <div class="grid plat">
+      {{ range site.Data.platforms }}
+        <div class="plat-card reveal"><span class="ico">{{ partial "icon.html" (dict "name" .icon "size" 26) }}</span><b>{{ .name }}</b><span class="muted">{{ .note }}</span></div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq">
+  <div class="wrap narrow">
+    <div class="section-head reveal"><span class="eyebrow">FAQ</span><h2>Good questions</h2></div>
+    {{ range site.Data.faq }}
+      <details class="reveal"><summary>{{ .q }}</summary><p>{{ .a }}</p></details>
+    {{ end }}
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-card reveal">
+      <div class="blob b3" aria-hidden="true"></div>
+      <h2>Take your files back.</h2>
+      <p>Run Syncloom on a small VPS, a home server or your company's cluster. It takes about five minutes.</p>
+      <div class="cta center">
+        <a class="btn light big" href="/install/">Install Syncloom</a>
+        <a class="btn ghost-light big" href="/docs/introduction/">Explore the docs</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

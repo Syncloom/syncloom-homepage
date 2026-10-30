@@ -1,0 +1,20 @@
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/" aria-label="Syncloom home">
+      <img src="/favicon.svg" width="30" height="30" alt="" />
+      <span>Syncloom</span>
+    </a>
+    <nav class="links" id="links" aria-label="Main">
+      {{ $cur := . }}
+      {{ range site.Menus.main }}
+        <a href="{{ .URL }}" {{ if and (not (hasPrefix .URL "/#")) (hasPrefix $cur.RelPermalink .URL) }}aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="theme" aria-label="Toggle colour theme">{{ partial "icon.html" (dict "name" "moon" "size" 18) }}</button>
+      <a class="btn small" href="{{ site.Params.github }}" rel="noopener">{{ partial "icon.html" (dict "name" "github" "size" 16) }} <span class="hide-s">GitHub</span></a>
+      <a class="btn primary small" href="/install/">Get started</a>
+      <button class="icon-btn burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="links">{{ partial "icon.html" (dict "name" "menu" "size" 22) }}</button>
+    </div>
+  </div>
+</header>

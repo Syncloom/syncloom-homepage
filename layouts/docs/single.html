@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="wrap docs">
+  {{ partial "docs-nav.html" . }}
+  <article class="docs-main">
+    <div class="crumb"><a href="/docs/">Docs</a> / {{ .Params.group }}</div>
+    <header class="page-head"><h1>{{ .Title }}</h1>{{ with .Params.subtitle }}<p class="lead">{{ . }}</p>{{ end }}</header>
+    <div class="prose">{{ .Content }}</div>
+    {{ $pages := (site.GetPage "/docs").Pages.ByWeight }}
+    <div class="pager">
+      {{ with $pages.Prev . }}<a class="prev" href="{{ .RelPermalink }}"><small>← Previous</small><b>{{ .Title }}</b></a>{{ else }}<span></span>{{ end }}
+      {{ with $pages.Next . }}<a class="next" href="{{ .RelPermalink }}"><small>Next →</small><b>{{ .Title }}</b></a>{{ end }}
+    </div>
+  </article>
+  <aside class="docs-toc"><h4>On this page</h4>{{ .TableOfContents }}</aside>
+</div>
+{{ end }}
