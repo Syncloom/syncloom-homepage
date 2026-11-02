@@ -29,8 +29,8 @@ Back up two things together:
 ```bash
 # database
 docker compose exec -T db pg_dump -U syncloom syncloom > syncloom-$(date +%F).sql
-# encrypted blobs (when using the local volume)
-docker run --rm -v syncloom_blobs:/data -v "$PWD":/backup alpine tar czf /backup/blobs-$(date +%F).tgz -C /data .
+# encrypted file chunks (the ./files folder next to docker-compose.yml)
+tar czf blobs-$(date +%F).tgz -C files .
 ```
 
 With `BLOB_BACKEND=s3`, enable versioning or replication on the bucket instead. Backups contain only ciphertext, so they are safe to store off-site. They are useless without users' passwords or recovery keys.

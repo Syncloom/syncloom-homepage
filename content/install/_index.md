@@ -123,4 +123,4 @@ docker compose pull
 docker compose up -d
 ```
 
-Database migrations run automatically at startup. Back up the `pgdata` and `blobs` volumes first; see [Administration](/docs/administration/).
+Database migrations run automatically at startup. Back up the `pgdata` volume and the `files` folder first; see [Administration](/docs/administration/).
