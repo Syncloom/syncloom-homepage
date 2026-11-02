@@ -72,7 +72,7 @@ test('install, docs, imprint and privacy pages', async ({ page }) => {
 	}
 	// OS tabs switch
 	await page.getByRole('tab', { name: 'Windows' }).click();
-	await expect(page.getByText('has not been built or tested yet')).toBeVisible();
+	await expect(page.getByText('has been built and run on Windows 11 on ARM64')).toBeVisible();
 	await page.goto('/docs/encryption/');
 	await expect(page.getByRole('heading', { level: 1 })).toHaveText('Encryption');
 	await expect(page.locator('.docs-toc nav a').first()).toBeVisible();

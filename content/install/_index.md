@@ -100,7 +100,7 @@ syncloom daemon          # keeps ~/Syncloom in sync
 ```
 {{< /tab >}}
 {{< tab name="Windows" >}}
-The Windows client (C# and WinUI 3) is in the repository `syncloom-windows`. It has not been built or tested yet.
+The Windows client (C# and WinUI 3) is in the repository `syncloom-windows`. It has been built and run on Windows 11 on ARM64; the x64 build has not been tried. There are no downloads yet, so build it from source with Rust, the .NET SDK and Visual Studio with the C++ tools (on ARM64 also clang); the README of the repository has the steps. Files are synced into a folder that Explorer knows as a sync root, but they are not yet on-demand placeholders.
 {{< /tab >}}
 {{< tab name="Android" >}}
 Build the app from `syncloom-android` with Android Studio or `./gradlew assembleDebug`. It registers as a document provider, so your files appear in the system file picker. It has not been tested on a real device yet.

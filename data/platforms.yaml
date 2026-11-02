@@ -9,7 +9,7 @@
   note: "GTK app, tray and a CLI daemon"
 - name: "Windows"
   icon: "windows"
-  note: "Files On-Demand in Explorer"
+  note: "Synced folder in Explorer"
 - name: "Android"
   icon: "robot"
   note: "Works with the system file picker"

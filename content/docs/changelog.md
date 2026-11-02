@@ -4,6 +4,13 @@ subtitle: "What changed in each release."
 group: "Reference"
 weight: 120
 ---
+## 0.1.3 (public preview)
+
+- Docker images and Compose bundle: choose the published ports with `SYNCLOOM_HTTP_PORT`, `SYNCLOOM_HTTPS_PORT` and `SYNCLOOM_HTTP_BIND`; Compose pulls the images from Docker Hub; the encrypted files live in the `./files` folder
+- Web: a long public link no longer breaks the Share dialog; downloads keep their name and extension in Safari and Firefox
+- Mac app: whole folders can be dropped or uploaded, the storage meter stays current, and the app keeps running in the menu bar without its window
+- Windows: the client now builds and runs on Windows 11 on ARM64
+
 ## 0.1.0 (public preview)
 
 *The first public release. Expect rough edges.*
