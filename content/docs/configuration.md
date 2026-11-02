@@ -12,7 +12,7 @@ The server is configured with environment variables. In the Compose bundle they 
 |---|---|---|
 | `DATABASE_URL` | *required* | PostgreSQL connection string, e.g. `postgres://syncloom:secret@db:5432/syncloom` |
 | `LISTEN_ADDR` | `0.0.0.0:8080` | Address and port to bind |
-| `PUBLIC_URL` | `http://localhost:8080` | The address users reach the service at. Security keys (WebAuthn) bind to its host name, and OIDC redirects use it. **Changing the host later invalidates registered security keys.** |
+| `PUBLIC_URL` | `http://localhost:8080` (local trials only) | The address users reach the service at, **including `https://` and a non-standard port if you use one**, e.g. `https://sync.example.com:7777`. In production always use `https://`: security keys only work on secure origins. The Docker Compose bundle sets it for you to `https://` plus `SYNCLOOM_DOMAIN`, so you normally never set it by hand. Security keys (WebAuthn) bind to its host name, and OIDC redirects use it. **Changing the host later invalidates registered security keys.** |
 | `RUST_LOG` | `info,sqlx=warn` | Log filter |
 | `MAINTENANCE_INTERVAL_SECS` | `3600` | How often retention and garbage collection run |
 | `CORS_ORIGINS` | *(none)* | Comma-separated browser origins allowed for cross-origin development |
