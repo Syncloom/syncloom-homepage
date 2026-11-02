@@ -42,6 +42,10 @@ The server is configured with environment variables. In the Compose bundle they 
 
 | Variable | Description |
 |---|---|
-| `SYNCLOOM_DOMAIN` | Public host name; Caddy obtains a certificate for it |
+| `SYNCLOOM_DOMAIN` | Public host name; Caddy obtains a certificate for it. Add a port (`sync.example.com:7777`) to serve HTTPS on a non-standard port |
 | `POSTGRES_PASSWORD` | Password for the bundled database |
-| `SYNCLOOM_VERSION` | Image tag to run (default `latest`) |
+| `SYNCLOOM_VERSION` | Image tag to run (default: the release of the bundle) |
+| `SYNCLOOM_HTTP_PORT` | Host port for port 80, which serves the redirect and the Let's Encrypt challenge (default `80`) |
+| `SYNCLOOM_HTTPS_PORT` | Host port for HTTPS (default `443`). **Must equal the port in `SYNCLOOM_DOMAIN`** |
+
+Let's Encrypt always validates over port 80 of your domain. If another proxy owns port 80, forward it to `SYNCLOOM_HTTP_PORT` and keep the original `Host` header.
