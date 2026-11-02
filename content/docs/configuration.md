@@ -46,6 +46,7 @@ The server is configured with environment variables. In the Compose bundle they 
 | `POSTGRES_PASSWORD` | Password for the bundled database |
 | `SYNCLOOM_VERSION` | Image tag to run (default: the release of the bundle) |
 | `SYNCLOOM_HTTP_PORT` | Host port for port 80, which serves the redirect and the Let's Encrypt challenge (default `80`) |
+| `SYNCLOOM_HTTP_BIND` | Address the HTTP port is published on (default `0.0.0.0`; e.g. `172.17.0.1` for the Docker bridge only) |
 | `SYNCLOOM_HTTPS_PORT` | Host port for HTTPS (default `443`). **Must equal the port in `SYNCLOOM_DOMAIN`** |
 
 Let's Encrypt always validates over port 80 of your domain. If another proxy owns port 80, forward it to `SYNCLOOM_HTTP_PORT` and keep the original `Host` header.
